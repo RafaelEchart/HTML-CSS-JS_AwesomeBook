@@ -34,11 +34,10 @@ const removeBook = (id) => {
   localStorage.setItem('data', JSON.stringify(books));
 };
 window.onload = function onload() {
-  let tempBooks = JSON.parse(localStorage.getItem('data'));
+  const tempBooks = JSON.parse(localStorage.getItem('data'));
 
-  if(tempBooks && tempBooks.length){
-    books = tempBooks
-    
+  if (tempBooks && tempBooks.length) {
+    books = tempBooks;
 
     for (let x = 0; x < tempBooks.length; x += 1) {
       bookHolder.innerHTML += ` <span>${tempBooks[x].title}</span><br/>
@@ -47,6 +46,4 @@ window.onload = function onload() {
     <hr>`;
     }
   }
-
-  
 };
