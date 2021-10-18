@@ -34,12 +34,19 @@ const removeBook = (id) => {
   localStorage.setItem('data', JSON.stringify(books));
 };
 window.onload = function onload() {
-  books = JSON.parse(localStorage.getItem('data'));
+  let tempBooks = JSON.parse(localStorage.getItem('data'));
 
-  for (let x = 0; x < books.length; x += 1) {
-    bookHolder.innerHTML += ` <span>${books[x].title}</span><br/>
-  <span>${books[x].author}</span><br/>
-  <button onclick="removeBook(${books[x].id})">Remove</button>
-  <hr>`;
+  if(tempBooks && tempBooks.length){
+    books = tempBooks
+    
+
+    for (let x = 0; x < tempBooks.length; x += 1) {
+      bookHolder.innerHTML += ` <span>${tempBooks[x].title}</span><br/>
+    <span>${tempBooks[x].author}</span><br/>
+    <button onclick="removeBook(${tempBooks[x].id})">Remove</button>
+    <hr>`;
+    }
   }
+
+  
 };
