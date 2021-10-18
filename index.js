@@ -1,15 +1,16 @@
 /* eslint-disable rule-you-want-to-disable */
+var books = [];
 const title = document.querySelector(".boot-title");
 const author = document.querySelector(".author");
 const btn = document.querySelector(".btn");
 const bookHolder = document.querySelector("#bookList");
 
-let books = [];
 const addBook = function () {
   let id = Math.random() 
-
+  let temp = books
+  console.log(temp)
+  
   books.push({ id: id, title: title.value, author: author.value });
-  console.log(books);
   bookHolder.innerHTML += ` <span>${title.value}</span><br/>
   <span>${author.value}</span><br/>
   <button onclick="removeBook(${id})">Remove</button>
