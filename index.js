@@ -6,13 +6,13 @@ const bookHolder = document.querySelector("#bookList");
 
 let books = [];
 const addBook = function () {
-  let generated_ID = Math.random();
+  let id = Math.random() 
 
-  books.push({ id: generated_ID, title: title.value, author: author.value });
+  books.push({ id: id, title: title.value, author: author.value });
   console.log(books);
   bookHolder.innerHTML += ` <span>${title.value}</span><br/>
   <span>${author.value}</span><br/>
-  <button onclick="removeBook(${generated_ID})">Remove</button>
+  <button onclick="removeBook(${id})">Remove</button>
   <hr>`;
 
   title.value = ""
