@@ -16,7 +16,6 @@ function addBook() {
 
   title.value = '';
   author.value = '';
-  // books = JSON.parse(localStorage.books)
   localStorage.setItem('data', JSON.stringify(books));
 }
 
