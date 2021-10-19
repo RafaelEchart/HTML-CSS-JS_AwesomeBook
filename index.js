@@ -25,7 +25,7 @@ class Book {
     localStorage.setItem('data', JSON.stringify(books));
   }
 
-  removeBookMethod() {
+  removeBookMethod(){
     books = books.filter((book) => book.id.toString() !== this.id);
 
     const bookToDelete = document.getElementById(this.id);
@@ -34,7 +34,7 @@ class Book {
   }
 }
 
-function addBook() {
+function addBook(){
   const id = Math.random();
   const title = inputTitle.value;
   const author = inputAuthor.value;
