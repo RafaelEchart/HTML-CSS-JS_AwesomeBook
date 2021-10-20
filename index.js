@@ -15,12 +15,18 @@ class Book {
   addBookMethod() {
     books.push({ id: this.id, title: this.title, author: this.author });
 
-    const newBookHTML = `<div id="${this.id}"><span>${this.title}</span><br/>
-    <span>${this.author}</span><br/>
-    <button id="${this.id}">Remove</button>
-    <hr></div>`;
+    const newBookHTML = `<div id="${this.id}" class="singleBook"><span><strong>${this.title}</strong> by ${this.author} </span>
+    
+    <button id="${this.id}" class="buttonShadow">Remove</button>
+    </div>`;
 
     bookHolder.insertAdjacentHTML('beforeend', newBookHTML);
+
+    if (books.length % 2 === 0) {
+      document.getElementById(this.id).classList.add('whiteBackground');
+    } else {
+      document.getElementById(this.id).classList.add('blackBackground');
+    }
 
     localStorage.setItem('data', JSON.stringify(books));
   }
