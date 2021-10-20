@@ -1,49 +1,69 @@
 /* eslint-disable no-unused-vars */
 let books = [];
-const title = document.querySelector('.boot-title');
-const author = document.querySelector('.author');
+const inputTitle = document.querySelector('.boot-title');
+const inputAuthor = document.querySelector('.author');
 const btn = document.querySelector('.btn');
 const bookHolder = document.querySelector('#bookList');
 
-function addBook() {
-  const id = Math.random();
+class Book {
+  constructor(id, title, author) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
 
-  books.push({ id, title: title.value, author: author.value });
-  bookHolder.innerHTML += ` <span>${title.value}</span><br/>
-  <span>${author.value}</span><br/>
-  <button onclick="removeBook(${id})">Remove</button>
-  <hr>`;
+  addBookMethod() {
+    books.push({ id: this.id, title: this.title, author: this.author });
 
-  title.value = '';
-  author.value = '';
-  localStorage.setItem('data', JSON.stringify(books));
+    const newBookHTML = `<div id="${this.id}"><span>${this.title}</span><br/>
+    <span>${this.author}</span><br/>
+    <button id="${this.id}">Remove</button>
+    <hr></div>`;
+
+    bookHolder.insertAdjacentHTML('beforeend', newBookHTML);
+
+    localStorage.setItem('data', JSON.stringify(books));
+  }
+
+  removeBookMethod() {
+    books = books.filter((book) => book.id.toString() !== this.id);
+
+    const bookToDelete = document.getElementById(this.id);
+    bookToDelete.remove();
+    localStorage.setItem('data', JSON.stringify(books));
+  }
 }
 
+function addBook() {
+  const id = Math.random();
+  const title = inputTitle.value;
+  const author = inputAuthor.value;
+
+  const newBook = new Book(id, title, author);
+  newBook.addBookMethod();
+
+  const removeButton = document.getElementById(id);
+  removeButton.addEventListener('click', newBook.removeBookMethod);
+
+  inputTitle.value = '';
+  inputAuthor.value = '';
+}
 btn.addEventListener('click', addBook);
 
-const removeBook = (id) => {
-  bookHolder.innerHTML = '';
-  books = books.filter((book) => book.id !== id);
+const onLoadBooks = (id, title, author) => {
+  const newBook = new Book(id, title, author);
+  newBook.addBookMethod();
 
-  for (let x = 0; x < books.length; x += 1) {
-    bookHolder.innerHTML += ` <span>${books[x].title}</span><br/>
-  <span>${books[x].author}</span><br/>
-  <button onclick="removeBook(${books[x].id})">Remove</button>
-  <hr>`;
-  }
-  localStorage.setItem('data', JSON.stringify(books));
+  const removeButton = document.getElementById(id);
+  removeButton.addEventListener('click', newBook.removeBookMethod);
 };
+
 window.onload = function onload() {
   const tempBooks = JSON.parse(localStorage.getItem('data'));
 
   if (tempBooks && tempBooks.length) {
-    books = tempBooks;
-
-    for (let x = 0; x < tempBooks.length; x += 1) {
-      bookHolder.innerHTML += ` <span>${tempBooks[x].title}</span><br/>
-    <span>${tempBooks[x].author}</span><br/>
-    <button onclick="removeBook(${tempBooks[x].id})">Remove</button>
-    <hr>`;
+    for (let i = 0; i < tempBooks.length; i += 1) {
+      onLoadBooks(tempBooks[i].id, tempBooks[i].title, tempBooks[i].author);
     }
   }
 };
