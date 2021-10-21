@@ -1,10 +1,29 @@
 /* eslint-disable no-unused-vars */
-let books = [];
+
 const inputTitle = document.querySelector('.boot-title');
 const inputAuthor = document.querySelector('.author');
 const btn = document.querySelector('.btn');
 const bookHolder = document.querySelector('#bookList');
+const add = document.getElementById('add')
+const list = document.getElementById('list')
+const listSection = document.getElementById('listSection')
+const newBookSection = document.getElementById('newBookSection')
 
+
+
+list.addEventListener('click', () =>{
+  listSection.style.display = "block"
+newBookSection.style.display = "none"
+
+})
+add.addEventListener('click', () =>{
+ 
+  newBookSection.style.display="block"
+  listSection.style.display = "none"
+  
+})
+
+let books = [];
 class Book {
   constructor(id, title, author) {
     this.id = id;
