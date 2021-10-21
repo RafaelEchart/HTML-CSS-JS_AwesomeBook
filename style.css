@@ -59,3 +59,42 @@ body {
   color: black;
   background-color: #fff;
 }
+
+.page {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  padding: 3px;
+  font-size: 20px;
+}
+
+ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+#add {
+  border-right: solid black 1px;
+  padding: 5px;
+}
+
+/* .our-contacts {
+  display: flex;
+  flex-direction: column;
+} */
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  display: block;
+}
