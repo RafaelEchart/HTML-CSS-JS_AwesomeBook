@@ -164,3 +164,14 @@ ul {
   flex-direction: column;
   align-items: flex-start;
 }
+
+footer {
+  width: 99%;
+  background-color: lightgray;
+  border: 1px solid black;
+  margin: 5px;
+  text-align: left;
+  height: 25px;
+  font-size: 21px;
+  padding-left: 6px;
+}
