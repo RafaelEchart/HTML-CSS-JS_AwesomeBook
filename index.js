@@ -4,24 +4,8 @@ const inputTitle = document.querySelector('.boot-title');
 const inputAuthor = document.querySelector('.author');
 const btn = document.querySelector('.btn');
 const bookHolder = document.querySelector('#bookList');
-const add = document.getElementById('add')
-const list = document.getElementById('list')
-const listSection = document.getElementById('listSection')
-const newBookSection = document.getElementById('newBookSection')
 
 
-
-list.addEventListener('click', () =>{
-  listSection.style.display = "block"
-newBookSection.style.display = "none"
-
-})
-add.addEventListener('click', () =>{
- 
-  newBookSection.style.display="block"
-  listSection.style.display = "none"
-  
-})
 
 let books = [];
 class Book {
@@ -64,14 +48,22 @@ function addBook() {
   const title = inputTitle.value;
   const author = inputAuthor.value;
 
-  const newBook = new Book(id, title, author);
-  newBook.addBookMethod();
+  if(title.length && author.length){
+    const newBook = new Book(id, title, author);
+    newBook.addBookMethod();
+  
+    const removeButton = document.getElementById(id);
+    removeButton.addEventListener('click', newBook.removeBookMethod);
+  
+    inputTitle.value = '';
+    inputAuthor.value = '';
+    document.getElementById("addButtonID").style.boxShadow = "2px 2px black"
 
-  const removeButton = document.getElementById(id);
-  removeButton.addEventListener('click', newBook.removeBookMethod);
+  } else {
+    document.getElementById("addButtonID").style.boxShadow = "2px 2px red"
+  }
 
-  inputTitle.value = '';
-  inputAuthor.value = '';
+ 
 }
 btn.addEventListener('click', addBook);
 

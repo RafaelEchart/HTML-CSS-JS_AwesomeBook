@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <h3>awesome books</h3>
+        <h3>Awesome Books</h3>
         <nav >
           <ul class="header-items">
             <li><a href="#" id="list" class="nav-link display">List </a></li>
@@ -19,27 +23,54 @@
         </nav>
         
       </header>
+      <div class="sectionContainer">
 
-    <section id="listSection"  class="page active">
-        <div>
+        <section id="listSection"  class="page active">
+          <div>
             <h1 >All Awesome books</h1>
             <div id="bookList" class="booksContainer ">
             </div>
-        </div>
-    </section>
+          </div>
+        </section>
+        
+        <section id="newBookSection" class="page show-list">
+          <h2>Add a new Books</h2>
+          <div class="flex">
+            <div id="bookContainer"> </div>
+          </div>
+          <!-- <h2 class="new-book">Add a new book</h2> -->
+          <div class="inputContainer">
+            <input placeholder="Title" type="text" class="boot-title"/><br/>
+            <input placeholder="Author" type="text" class="author"/><br/>
+            <div class="btn-container"><button class="btn buttonShadow" id="addButtonID" type="button"> Add </button></div> 
+          </div>
+        </section>
 
-    <section id="newBookSection" class="page show-list">
-              <h1>Add a new Books</h1>
-              <div class="flex">
-                <div id="bookContainer"> </div>
-              </div>
-        <!-- <h2 class="new-book">Add a new book</h2> -->
-            <div class="inputContainer">
-                <input placeholder="Title" type="text" class="boot-title"/><br/>
-                <input placeholder="Author" type="text" class="author"/><br/>
-                <div class="btn-container"><button class="btn buttonShadow" type="button"> Add </button></div> 
-            </div>
-    </section>
-    <script src="index.js"></script>
+        <section id="contactSection" class="page contactSection"> 
+          <h2>
+            Contact information
+          </h2>
+
+          <span>
+            Do you have any questions or you just want to say "Hello"?<br/>You can reach out to us!
+          </span>
+          <div>
+
+            <ul>
+              <li>
+                Our e-mail: mail@mail.com
+              </li>
+              <li>
+                Our phone number: +1 234 567 89
+              </li>
+              <li>
+                Our address: The planet Earth.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+        <script src="index.js"></script>
+        <script src="navigation.js"></script>
 </body>
 </html>
