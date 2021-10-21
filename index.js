@@ -40,6 +40,11 @@ class Book {
     const bookToDelete = document.getElementById(this.id);
     bookToDelete.remove();
     localStorage.setItem('data', JSON.stringify(books));
+
+    if(!books.length){
+      document.getElementById("noBooksNote").style.display = "block"
+
+    }
   }
 }
 
@@ -49,6 +54,8 @@ function addBook() {
   const author = inputAuthor.value;
 
   if(title.length && author.length){
+    document.getElementById("noBooksNote").style.display = "none"
+
     const newBook = new Book(id, title, author);
     newBook.addBookMethod();
   
@@ -79,8 +86,12 @@ window.onload = function onload() {
   const tempBooks = JSON.parse(localStorage.getItem('data'));
 
   if (tempBooks && tempBooks.length) {
+    document.getElementById("noBooksNote").style.display = "none"
+
     for (let i = 0; i < tempBooks.length; i += 1) {
       onLoadBooks(tempBooks[i].id, tempBooks[i].title, tempBooks[i].author);
     }
+  } else {
+    document.getElementById("noBooksNote").style.display = "block"
   }
 };

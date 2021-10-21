@@ -129,12 +129,21 @@ ul {
 
 @media only screen and (max-width: 500px) {
   header {
-    font-size: 14px;
+    font-size: 14px; 
+  }
+
+  header nav {
+    display: flex;
+    align-items: center;  
+  }
+
+  header h3 {
+    width: 50px;
   }
 
   ul {
     display: flex;
-    gap: 5px;
+    gap: 15px;
     list-style: none;
     width: 100%;
   }
@@ -166,12 +175,16 @@ ul {
 }
 
 footer {
-  width: 99%;
   background-color: lightgray;
   border: 1px solid black;
   margin: 5px;
   text-align: left;
   height: 25px;
-  font-size: 21px;
-  padding-left: 6px;
+  font-size: 17px;
+  font-weight: 900;
+  padding: 16px;
+}
+
+.noBooksNote {
+  display: none;
 }
