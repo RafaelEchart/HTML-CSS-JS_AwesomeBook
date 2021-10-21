@@ -129,12 +129,12 @@ ul {
 
 @media only screen and (max-width: 500px) {
   header {
-    font-size: 14px; 
+    font-size: 14px;
   }
 
   header nav {
     display: flex;
-    align-items: center;  
+    align-items: center;
   }
 
   header h3 {
@@ -187,4 +187,11 @@ footer {
 
 .noBooksNote {
   display: none;
+}
+
+.dateFormat {
+  text-align: end;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 5px;
 }

@@ -5,8 +5,6 @@ const inputAuthor = document.querySelector('.author');
 const btn = document.querySelector('.btn');
 const bookHolder = document.querySelector('#bookList');
 
-
-
 let books = [];
 class Book {
   constructor(id, title, author) {
@@ -41,9 +39,8 @@ class Book {
     bookToDelete.remove();
     localStorage.setItem('data', JSON.stringify(books));
 
-    if(!books.length){
-      document.getElementById("noBooksNote").style.display = "block"
-
+    if (!books.length) {
+      document.getElementById('noBooksNote').style.display = 'block';
     }
   }
 }
@@ -53,24 +50,21 @@ function addBook() {
   const title = inputTitle.value;
   const author = inputAuthor.value;
 
-  if(title.length && author.length){
-    document.getElementById("noBooksNote").style.display = "none"
+  if (title.length && author.length) {
+    document.getElementById('noBooksNote').style.display = 'none';
 
     const newBook = new Book(id, title, author);
     newBook.addBookMethod();
-  
+
     const removeButton = document.getElementById(id);
     removeButton.addEventListener('click', newBook.removeBookMethod);
-  
+
     inputTitle.value = '';
     inputAuthor.value = '';
-    document.getElementById("addButtonID").style.boxShadow = "2px 2px black"
-
+    document.getElementById('addButtonID').style.boxShadow = '2px 2px black';
   } else {
-    document.getElementById("addButtonID").style.boxShadow = "2px 2px red"
+    document.getElementById('addButtonID').style.boxShadow = '2px 2px red';
   }
-
- 
 }
 btn.addEventListener('click', addBook);
 
@@ -86,12 +80,21 @@ window.onload = function onload() {
   const tempBooks = JSON.parse(localStorage.getItem('data'));
 
   if (tempBooks && tempBooks.length) {
-    document.getElementById("noBooksNote").style.display = "none"
+    document.getElementById('noBooksNote').style.display = 'none';
 
     for (let i = 0; i < tempBooks.length; i += 1) {
       onLoadBooks(tempBooks[i].id, tempBooks[i].title, tempBooks[i].author);
     }
   } else {
-    document.getElementById("noBooksNote").style.display = "block"
+    document.getElementById('noBooksNote').style.display = 'block';
   }
+
+  // Luxon Date Format with CDN
+  // eslint-disable-next-line no-undef
+  const luxonDate = luxon.DateTime.local().setZone('UTC-6');
+
+  const dateFormat = `${luxonDate.monthLong} ${luxonDate.day}th ${luxonDate.year}, ${luxonDate.hour}:${luxonDate.minute}:${luxonDate.second} `;
+  const dateDiv = document.getElementById('dateFormat');
+
+  dateDiv.append(dateFormat);
 };
