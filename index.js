@@ -92,9 +92,7 @@ window.onload = function onload() {
   // Luxon Date Format with CDN
   // eslint-disable-next-line no-undef
   const luxonDate = luxon.DateTime.local().setZone('UTC-6');
-
   const dateFormat = `${luxonDate.monthLong} ${luxonDate.day}th ${luxonDate.year}, ${luxonDate.hour}:${luxonDate.minute}:${luxonDate.second} `;
   const dateDiv = document.getElementById('dateFormat');
-
   dateDiv.append(dateFormat);
 };
