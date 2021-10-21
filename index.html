@@ -3,25 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <section>
-        <h1>Awesome books</h1>
-        <div id="bookList" class="booksContainer">
-        </div>
-    </section>
-
-    <section>
-        <h2 class="new-book">Add a new book</h2>
-            <div class="inputContainer">
-                <input placeholder="Title" type="text" class="boot-title"/><br/>
-                <input placeholder="Author" type="text" class="author"/><br/>
-                <div class="btn-container"><button class="btn buttonShadow" type="button"> Add </button></div> 
+    <header>
+        <h3>Awesome Books</h3>
+        <nav >
+          <ul class="header-items">
+            <li><a href="#" id="list" class="nav-link display">List </a></li>
+            <li><a href="#" id="add" class="nav-link display">Add new</a></li>
+            <li><a href="#" id="contact" class="nav-link display">Contact</a></li>
+          </ul>
+        </nav>
+        
+      </header>
+      <div class="sectionContainer">
+        <div id="dateFormat" class="dateFormat"></div>
+        <section id="listSection"  class="page active">
+          <div>
+            <h1 >All Awesome books</h1>
+            <div id="bookList" class="booksContainer ">
+              <h3 id="noBooksNote" class="noBooksNote">No books saved</h3>
             </div>
-    </section>
-    <script src="index.js"></script>
+          </div>
+        </section>
+        
+        <section id="newBookSection" class="page show-list">
+          <h2>Add a new Books</h2>
+          <div class="flex">
+            <div id="bookContainer"> </div>
+          </div>
+          <!-- <h2 class="new-book">Add a new book</h2> -->
+          <div class="inputContainer">
+            <input placeholder="Title" type="text" class="boot-title"/><br/>
+            <input placeholder="Author" type="text" class="author"/><br/>
+            <div class="btn-container"><button class="btn buttonShadow" id="addButtonID" type="button"> Add </button></div> 
+          </div>
+        </section>
+
+        <section id="contactSection" class="page contactSection"> 
+          <h2>
+            Contact information
+          </h2>
+
+          <span>
+            Do you have any questions or you just want to say "Hello"?<br/>You can reach out to us!
+          </span>
+          <div>
+
+            <ul>
+              <li>
+                Our e-mail: mail@mail.com
+              </li>
+              <li>
+                Our phone number: +1 234 567 89
+              </li>
+              <li>
+                Our address: The planet Earth.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+        <footer>2021 copyright. fortune & Rapheal</footer>
+      
+        <script src="index.js"></script>
+        <script src="navigation.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
+        
 </body>
 </html>

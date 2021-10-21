@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  font-family: "Lato", sans-serif;
 }
 
 .booksContainer {
@@ -52,10 +53,145 @@ body {
 
 .btn {
   font-size: 18px;
-  max-width: 8%;
-
-  /* width: 10em; */
+  width: 55px;
   margin: 5px;
   color: black;
   background-color: #fff;
+}
+
+.page {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  padding: 3px 20px;
+  font-size: 20px;
+  background-color: lightgray;
+  margin: 5px;
+}
+
+ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+#add {
+  padding: 5px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  display: block;
+}
+
+@keyframes show-section {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes close-section {
+  100% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 1;
+  }
+}
+
+.header-items a:hover {
+  color: white;
+  font-weight: 600;
+}
+
+.sectionContainer {
+  height: 65vh;
+  margin: 5px;
+  background-color: lightgray;
+  overflow-y: auto;
+  border: 1px dashed;
+}
+
+@media only screen and (max-width: 500px) {
+  header {
+    font-size: 14px;
+  }
+
+  header nav {
+    display: flex;
+    align-items: center;
+  }
+
+  header h3 {
+    width: 50px;
+  }
+
+  ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    width: 100%;
+  }
+
+  .booksContainer {
+    width: 90%;
+  }
+}
+
+.contactSection h2 {
+  font-weight: 900;
+}
+
+.contactSection span {
+  font-weight: 600;
+}
+
+.contactSection div {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contactSection ul {
+  list-style: square;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+footer {
+  background-color: lightgray;
+  border: 1px solid black;
+  margin: 5px;
+  text-align: left;
+  height: 25px;
+  font-size: 17px;
+  font-weight: 900;
+  padding: 16px;
+}
+
+.noBooksNote {
+  display: none;
+}
+
+.dateFormat {
+  text-align: end;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 5px;
 }
