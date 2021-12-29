@@ -1,6 +1,7 @@
 # Awesome Book
 
-> This is a simple example of the usage of Array, objects and DOM manipulation. 
+> This is a simple example of the usage of Array, objects and DOM manipulation.
+> [Live Link](https://rafaelechart.github.io/HTML-CSS-JS_AwesomeBook/) 
 
 
 ## Built With
