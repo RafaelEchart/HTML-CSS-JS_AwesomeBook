@@ -26,8 +26,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- git clone https://github.com/RafaelEchart/AwesomeBook.git
-- cd AwesomeBook
+- git clone https://github.com/RafaelEchart/HTML-CSS-JS_AwesomeBook.git
+- cd HTML-CSS-JS_AwesomeBook
 
 ### Usage
 
